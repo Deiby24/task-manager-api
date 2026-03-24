@@ -53,8 +53,9 @@ cd task-manager-api
 ```bash
 npm install
 ```
+### 3. Configurar variables de entorno
 
-3. Crear archivo `.env` o copia el.env.example para tu .env:
+Crea un archivo `.env` en la raíz del proyecto o copia el archivo `.env.example` y renómbralo a `.env`.
 
 ```env
 PORT=3000
