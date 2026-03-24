@@ -198,12 +198,12 @@ Ejemplo:
 
 ##  Funcionalidades adicionales
 
-* ✅ Paginación
-* ✅ Filtro por estado
-* ✅ Logger de solicitudes
-* ✅ Manejo global de errores
-* ✅ Uso de variables de entorno
-* ✅ Arquitectura modular
+*  Paginación
+*  Filtro por estado
+*  Logger de solicitudes
+*  Manejo global de errores
+*  Uso de variables de entorno
+*  Arquitectura modular
 
 ---
 
