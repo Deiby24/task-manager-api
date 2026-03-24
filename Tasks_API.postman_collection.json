@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" }
+  ],
+  "item": [
+    {
+      "name": "Crear tarea (válida)",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/tasks",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Preparar informe\",\n  \"description\": \"Generar informe semanal\",\n  \"status\": \"pending\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Crear tarea (sin título — error 400)",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/tasks",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Sin título\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Listar todas las tareas",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/tasks"
+      }
+    },
+    {
+      "name": "Filtrar por estado",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks?status=pending",
+          "query": [{ "key": "status", "value": "pending" }]
+        }
+      }
+    },
+    {
+      "name": "Listar con paginación",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks?page=1&limit=5",
+          "query": [
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Obtener tarea por ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/tasks/1"
+      }
+    },
+    {
+      "name": "Obtener tarea inexistente (404)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/tasks/999"
+      }
+    },
+    {
+      "name": "Actualizar estado",
+      "request": {
+        "method": "PATCH",
+        "url": "{{baseUrl}}/api/tasks/1/status",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"done\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Actualizar estado inválido (400)",
+      "request": {
+        "method": "PATCH",
+        "url": "{{baseUrl}}/api/tasks/1/status",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"invalid_status\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Eliminar tarea",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/tasks/1"
+      }
+    }
+  ]
+}
